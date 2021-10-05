@@ -1,0 +1,17 @@
+.container_links {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+@media screen and (min-width: 769px) {
+  .container_links {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
