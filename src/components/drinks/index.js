@@ -1,4 +1,4 @@
-import "../styles.css";
+import { ButtonConf, ButtonGra, ButtonWed, ContainerDrinks, ListDrinks } from "../style";
 
 const { useContext } = require("react");
 const {
@@ -15,8 +15,8 @@ const Drinks = () => {
   const { addToCartConfraternization } = useContext(ConfraternizationContext);
 
   return (
-    <div className="Container_Drinks">
-      <div className="List_Drinks">
+    <ContainerDrinks>
+      <ListDrinks>
         {drinks.map((item, index) => (
           <li key={index}>
             <img alt={item.name} src={item.image_url} />
@@ -26,20 +26,20 @@ const Drinks = () => {
             <p>Descrição: {item.description}</p>
             <p>Quantidade de litros: {item.volume.value}L</p>
             
-              <button className="btn_wed" onClick={() => addToCartWedding(item)}>
+              <ButtonWed onClick={() => addToCartWedding(item)}>
                 Add Casamento
-              </button>
-              <button className="btn_conf" onClick={() => addToCartConfraternization(item)}>
+              </ButtonWed>
+              <ButtonConf onClick={() => addToCartConfraternization(item)}>
                 Add Confraternização
-              </button>
-              <button className="btn_gra" onClick={() => addToCartGraduation(item)}>
+              </ButtonConf>
+              <ButtonGra onClick={() => addToCartGraduation(item)}>
                 Add Formatura
-              </button>
+              </ButtonGra>
            
           </li>
         ))}
-      </div>
-    </div>
+      </ListDrinks>
+    </ContainerDrinks>
   );
 };
 

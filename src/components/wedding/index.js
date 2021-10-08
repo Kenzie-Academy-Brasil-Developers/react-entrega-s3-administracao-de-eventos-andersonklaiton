@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { WeddingContext } from "../../providers/wedding/wedding";
+import { ButtonRem, ContainerDrinks, ListDrinks } from "../style";
 
 const Wedding = () => {
   const { removeFromCartWedding, cartWedding } = useContext(WeddingContext);
 
   return (
-    <div className="Container_Drinks">
-      <div className="List_Drinks">
+    <ContainerDrinks>
+      <ListDrinks>
         {cartWedding &&
           cartWedding.map((item, index) => (
             <li key={index}>
@@ -15,13 +16,13 @@ const Wedding = () => {
               <p>Início fabricação: {item.first_brewed}</p>
               <p>Descrição: {item.description}</p>
               <p>Quantidade de litros: {item.volume.value}L</p>
-              <button className="btn_rem" onClick={() => removeFromCartWedding(item)}>
+              <ButtonRem onClick={() => removeFromCartWedding(item)}>
                 Remover Item
-              </button>
+              </ButtonRem>
             </li>
           ))}
-      </div>
-    </div>
+      </ListDrinks>
+    </ContainerDrinks>
   );
 };
 export default Wedding;
